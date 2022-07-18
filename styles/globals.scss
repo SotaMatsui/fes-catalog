@@ -1,0 +1,106 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Yu Gothic',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.cards-wrapper {
+  max-width: 1600px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    .card-master {
+      width: 512px;
+      gap: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      cursor: pointer;
+      border: solid 1px lightgray;
+      > img {
+        width: 100%;
+        aspect-ratio: 1/1;
+      }
+      > div {
+      }
+    }
+  }
+}
+
+.view-wrapper {
+  max-width: 1600px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  .view-master {
+    width: 980px;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    cursor: pointer;
+    > div.infos {
+      padding: 30px;
+      > img {
+        width: 100%;
+        aspect-ratio: 1/1;
+      }
+    }
+    > div {
+      font-size: 24px;
+
+      h4.title {
+        padding: 30px;
+        position: relative;
+      }
+
+      h4.title::before,
+      h4.title::after {
+        content: "";
+        width: 30px;
+        height: 30px;
+        position: absolute;
+      }
+
+      h4.title::before {
+        border-left: solid 2px #000000;
+        border-top: solid 2px #000000;
+        top: 0;
+        left: 0;
+      }
+
+      h4.title::after {
+        border-right: solid 2px #000000;
+        border-bottom: solid 2px #000000;
+        bottom: 0;
+        right: 0;
+      }
+
+      > * {
+        font-family: "Yu Gothic";
+
+        &.shortDesc {
+          font-weight: 500;
+          font-size: 1.1em;
+        }
+        &.longDesc {
+          font-weight: 400;
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}

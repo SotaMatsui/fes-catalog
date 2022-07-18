@@ -1,0 +1,9 @@
+{
+  "id": "program",
+  "label": "program",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {}
+  }
+}

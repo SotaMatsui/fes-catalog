@@ -1,0 +1,9 @@
+{
+  "id": "dsa",
+  "label": "as",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {}
+  }
+}
