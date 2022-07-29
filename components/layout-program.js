@@ -1,10 +1,10 @@
 import Footer from "./footer";
 import Header from "./header";
 
-export default function Layout({children}) {
+export default function ProgramLayout({children}) {
   return (
     <>
-      <Header/>
+      <Header />
       <main>
         {children}
       </main>

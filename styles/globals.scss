@@ -1,106 +1,401 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap");
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Yu Gothic',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-    Helvetica Neue, sans-serif;
+  font-family: -apple-system, "Noto Sans JP", "Yu Gothic", BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
+i {
+  font-style: unset;
+}
 a {
   color: inherit;
   text-decoration: none;
 }
-
+//defaults and variables
 * {
   box-sizing: border-box;
+  --color-10: #590d22;
+  --color-9: #800f2f;
+  --color-8: #a4133c;
+  --color-7: #c9184a;
+  --color-6: #ff4d6d;
+  --color-5: #ff758f;
+  --color-4: #ff8fa3;
+  --color-3: #ffb3c1;
+  --color-2: #ffccd5;
+  --color-1: #fff0f3;
+  /* --color-10: #073B4C;
+  --color-9: #118AB2;
+  --color-8: #06D6A0;
+  --color-7: #FFD166;
+  --color-6: #EF476F;
+  --color-5: #D4A373;
+  --color-4: #CCD5AE;
+  --color-3: #FAEDCD;
+  --color-2: #E9EDC9;
+  --color-1: #FEFAE0; */
+  --gap-default: 20px;
 }
-
-.cards-wrapper {
+.centered {
   max-width: 1600px;
-  width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    .card-master {
-      width: 512px;
-      gap: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      cursor: pointer;
-      border: solid 1px lightgray;
-      > img {
-        width: 100%;
-        aspect-ratio: 1/1;
-      }
-      > div {
-      }
+}
+
+.header {
+  margin: calc(var(--gap-default) * 2) var(--gap-default) var(--gap-default);
+  > h3 {
+    font-family: serif;
+    color: #590d22;
+    font-size: 1.4em;
+    font-weight: 400;
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, var(--color-7) 15%, var(--color-10) 15%);
+      margin: 4px 0;
     }
   }
 }
 
+//cards-view
+.cards-wrapper {
+  padding: calc(var(--gap-default) / 2);
+  .cards {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+    gap: calc(var(--gap-default) / 2);
+    .card-master {
+      cursor: pointer;
+      > div.img-wrapper {
+        width: 100%;
+        aspect-ratio: 1/1;
+        font-size: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        > img {
+          width: 100%;
+          aspect-ratio: 1/1;
+        }
+      }
+      > div.descriptions {
+        margin: 12px 4px;
+        font-size: 0.9em;
+        h4 {
+          margin: 4px 0;
+        }
+        i {
+          font-size: 0.8em;
+          font-weight: 500;
+          color: rgb(0 0 0 / 33%);
+        }
+        p {
+          margin: 2px 0;
+          > span {
+            font-size: 0.9em;
+          }
+        }
+      }
+    }
+  }
+}
 .view-wrapper {
   max-width: 1600px;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
   .view-master {
-    width: 980px;
-    gap: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    cursor: pointer;
+    padding: 30px;
     > div.infos {
-      padding: 30px;
       > img {
         width: 100%;
+        max-width: 480px;
         aspect-ratio: 1/1;
       }
     }
     > div {
-      font-size: 24px;
-
-      h4.title {
+      i.org {
+        display: block;
+        font-size: 0.7em;
+        font-weight: 400;
+      }
+      i.title {
+        display: block;
+        margin: 16px 0;
         padding: 30px;
         position: relative;
-      }
-
-      h4.title::before,
-      h4.title::after {
-        content: "";
-        width: 30px;
-        height: 30px;
-        position: absolute;
-      }
-
-      h4.title::before {
-        border-left: solid 2px #000000;
-        border-top: solid 2px #000000;
-        top: 0;
-        left: 0;
-      }
-
-      h4.title::after {
-        border-right: solid 2px #000000;
-        border-bottom: solid 2px #000000;
-        bottom: 0;
-        right: 0;
-      }
-
-      > * {
-        font-family: "Yu Gothic";
-
-        &.shortDesc {
-          font-weight: 500;
-          font-size: 1.1em;
-        }
-        &.longDesc {
+        font-weight: 500;
+        font-size: 1.3em;
+        i.genre {
+          display: block;
+          font-size: 0.7em;
           font-weight: 400;
+        }
+        &::before,
+        &::after {
+          content: "";
+          width: 30px;
+          height: 30px;
+          position: absolute;
+        }
+        &::before {
+          border-left: solid 2px var(--color-7);
+          border-top: solid 2px var(--color-7);
+          top: 0;
+          left: 0;
+        }
+
+        &::after {
+          border-right: solid 2px var(--color-7);
+          border-bottom: solid 2px var(--color-7);
+          bottom: 0;
+          right: 0;
+        }
+      }
+
+      i.place {
+        display: block;
+        font-weight: 500;
+        font-size: 1.3em;
+      }
+      .shortDesc {
+        position: relative;
+        display: inline-block;
+        margin: 1.5em 0;
+        padding: 32px 12px;
+        min-width: 120px;
+        max-width: 100%;
+        color: var(--color-10);
+        font-size: 16px;
+        background: var(--color-1);
+        box-sizing: border-box;
+        border-radius: 16px;
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -24px;
+          left: 50%;
+          margin-left: -15px;
+          background: inherit;
+          height: 32px;
+          width: 32px;
+          z-index: 2;
+          transform: rotate(45deg) translate(-25%, -25%);
+        }
+      }
+
+      &.longDesc {
+        font-weight: 400;
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+//navbar and menus
+#navbar-master {
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 0;
+  word-spacing: 0;
+  padding: 30px 60px 0 30px;
+  .menu-btn {
+    position: absolute;
+    display: flex;
+    right: 30px;
+    height: 38px;
+    width: 38px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    span {
+      --line-color: var(--color-10);
+      display: block;
+      height: 2px;
+      width: 20px;
+      background-color: var(--line-color);
+      position: absolute;
+      &:before {
+        content: "";
+        display: block;
+        background-color: var(--line-color);
+        position: absolute;
+        height: 2px;
+        width: 25px;
+        bottom: 8px;
+      }
+      &:after {
+        content: "";
+        display: block;
+        background-color: var(--line-color);
+        position: absolute;
+        height: 2px;
+        width: 25px;
+        top: 8px;
+      }
+    }
+  }
+}
+#menu-btn-check {
+  display: none;
+  &:checked ~ {
+    .menu-content {
+      left: 0;
+      background-position-x: right;
+    }
+    .menu-btn {
+      position: fixed;
+      right: 30px;
+      span {
+        background-color: rgba(255, 255, 255, 0);
+        &::before {
+          bottom: 0;
+          transform: rotate(45deg);
+        }
+        &::after {
+          top: 0;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+.menu-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  background-size: calc(200% + 64px);
+  background-position-x: left;
+  background-image: linear-gradient(to right, var(--color-7) calc(50% + 72px), var(--color-1) calc(50% + 72px));
+  left: 100%;
+  transition: all 0.5s;
+  > div {
+    padding: 100px 16px 0 64px;
+    ul.links {
+      padding: 8px 32px 8px 0;
+      li {
+        border-bottom: solid 1px var(--color-8);
+        list-style: none;
+        a {
+          display: block;
+          width: 100%;
+          font-size: 1em;
+          box-sizing: border-box;
+          color: var(--color-10);
+          text-decoration: none;
+          padding: 8px 15px 8px 0;
+          position: relative;
+          &::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-top: solid 2px var(--color-10);
+            border-right: solid 2px var(--color-10);
+            transform: rotate(45deg);
+            position: absolute;
+            right: 11px;
+            top: calc(50% - 6px);
+          }
+        }
+      }
+    }
+    ul.school-infos {
+      padding: 0;
+      li {
+        list-style: none;
+        color: var(--color-10);
+        text-align: end;
+        span.material-symbols-outlined {
           font-size: 1em;
         }
       }
+    }
+    header {
+      > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+      > p.subtitle {
+        line-height: 0;
+        margin: 0.5em 0;
+        font-family: serif;
+        color: var(--color-10);
+      }
+    }
+  }
+}
+
+main.greeting {
+  margin: var(--gap-default);
+}
+
+footer {
+  .centered {
+    max-width: 980px;
+  }
+  > div:nth-of-type(1) {
+    background: var(--color-1);
+    padding: 12px;
+    > main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap-default);
+      > section.header {
+        > div {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+        }
+        > p.subtitle {
+          line-height: 0;
+          margin: 0.5em 0;
+          font-family: serif;
+          color: var(--color-10);
+        }
+      }
+      > section.links {
+        @media screen and (min-width: 480px) {
+          display: flex;
+          > ul:not(:last-of-type) {
+            border-right: solid 1px var(--color-7);
+          }
+        }
+        padding: 12px 0;
+        > ul {
+          margin: 0;
+          padding: 0 24px;
+          > li {
+            list-style: none;
+            padding: 8px 0;
+            &:first-of-type {
+              font-size: 0.8em;
+              opacity: 0.3;
+            }
+          }
+        }
+      }
+    }
+  }
+  > div {
+    background: var(--color-2);
+    padding: 0 12px;
+    > main > i {
+      display: block;
+      text-align: end;
+      padding: 24px 0;
+      color: var(--color-9);
+      font-size: 0.8em;
     }
   }
 }

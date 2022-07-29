@@ -3,7 +3,7 @@ import axios from "axios";
 import React from "react";
 import useSWR from "swr";
 
-import Layout from "../../components/layout";
+import ProgramLayout from "../../components/layout-program";
 import { defaultHead } from "next/head";
 
 const endpoint = 'https://fesbrochuredata.web.app/data.json'
@@ -29,20 +29,22 @@ export default function Programs(prgrmsList) {
 
 
 
-  const pData = post.explore.scheduled;
+  const pData = post.explore.permanent;
 
 
 
 
   return (
     <>
-        <h1>welccccccccccccccccccccccccccccccocme</h1>
+      <div className="header">
+        <h3>開催プログラム一覧</h3>
+      </div>
       <div className="cards-wrapper">
         <div className="cards">
           {
             pData.map((program) => {
               const queryData = {
-                prevURL : '/programs',
+                prevURL: '/programs',
                 title: program.title,
                 image: program.image,
                 genre: program.genre,
@@ -52,16 +54,15 @@ export default function Programs(prgrmsList) {
                 longDesc: program.longDesc
               }
               return (
-                  <Link as={"programs/" + program.ID} href={{ pathname: "programs/" + program.ID, query: queryData }}>
-                    <div className="card-master" key={program.ID}>
-                      <img src={program.image} />
-                      <div>
-                        <h4>{program.title}</h4>
-                        <i>{program.genre} / {program.organizer}</i>
-                        <p>開催場所：{program.type}</p>
-                      </div>
-                   </div>
-                  </Link>
+                <Link as={"programs/" + program.ID} href={{ pathname: "programs/" + program.ID, query: queryData }}>
+                  <div className="card-master" key={program.ID}>
+                    <div className="img-wrapper"><img src={program.image} /></div>
+                    <div className="descriptions">
+                      <h4>{program.title}</h4>
+                      <i>{program.genre} / {program.organizer}</i>
+                    </div>
+                  </div>
+                </Link>
               )
             })
           }
@@ -73,5 +74,5 @@ export default function Programs(prgrmsList) {
 
 
 Programs.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
+  return <ProgramLayout>{page}</ProgramLayout>
 }
