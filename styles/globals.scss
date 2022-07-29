@@ -90,6 +90,7 @@ a {
         font-size: 0.9em;
         h4 {
           margin: 4px 0;
+          font-weight: 500;
         }
         i {
           font-size: 0.8em;
@@ -345,8 +346,13 @@ footer {
     max-width: 980px;
   }
   > div:nth-of-type(1) {
-    background: var(--color-1);
-    padding: 12px;
+    @media screen and (max-width: 479px) {
+    background: linear-gradient(to bottom, var(--color-1) 216px, var(--color-2) 216px);
+    }
+    @media screen and (min-width: 480px) {
+    background: linear-gradient(to bottom, var(--color-1) 64px, var(--color-2) 64px);
+    }
+    padding: 72px 12px 12px;
     > main {
       display: flex;
       flex-wrap: wrap;
@@ -387,14 +393,25 @@ footer {
       }
     }
   }
-  > div {
-    background: var(--color-2);
+  > div:nth-of-type(2) {
+    background: var(--color-3);
     padding: 0 12px;
     > main > i {
       display: block;
       text-align: end;
       padding: 24px 0;
       color: var(--color-9);
+      font-size: 0.8em;
+    }
+  }
+  > div:nth-of-type(3) {
+    background: var(--color-10);
+    padding: 0 12px;
+    > main > i {
+      display: block;
+      text-align: end;
+      padding: 24px 0;
+      color: var(--color-1);
       font-size: 0.8em;
     }
   }

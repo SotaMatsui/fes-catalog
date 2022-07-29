@@ -57,6 +57,9 @@ export default function Footer() {
         </main>
       </div>
       <div>
+        <main className='centered'><i>東京都立本所高等学校<br/>〒131-0033 東京都墨田区向島3-37-25</i></main>
+      </div>
+      <div>
         <main className='centered'><i>2022 HonjoComputerClub</i></main>
       </div>
     </footer>
