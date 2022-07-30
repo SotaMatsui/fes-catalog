@@ -15,10 +15,10 @@ export default function Header() {
       <Link href='/'><div className='fes-primary-logo'><Image src="/fes-primary-logo.svg" alt="Bunkasai 22 Logo" width={128} height={38} /></div></Link>
 
 
-      <div class="hamburger-menu">
+      <div className="hamburger-menu">
         <input type="checkbox" id="menu-btn-check" checked={menuState} />
-        <label onClick={closeMenu} for="menu-btn-check" class="menu-btn"><span></span></label>
-        <div class="menu-content">
+        <label onClick={closeMenu} htmlFor="menu-btn-check" className="menu-btn"><span></span></label>
+        <div className="menu-content">
           <div>
             <header>
               <div>
@@ -56,10 +56,10 @@ export default function Header() {
                 東京都立本所高等学校
               </li>
               <li>
-                <span class="material-symbols-outlined">pin_drop</span>東京都墨田区向島3-37-25
+                <span className="material-symbols-outlined">pin_drop</span>東京都墨田区向島3-37-25
               </li>
               <li>
-                <span class="material-symbols-outlined">call</span>03-3622-0344
+                <span className="material-symbols-outlined">call</span>03-3622-0344
               </li>
             </ul>
           </div>

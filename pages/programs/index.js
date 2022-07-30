@@ -37,8 +37,8 @@ export default function Programs(prgrmsList) {
                 }
                 console.log(index)
                 return (
-                  <Link as={"programs/" + index} href={{ pathname: "programs/" + index, query: queryData }}>
-                    <div className="card-master" key={index}>
+                  <Link key={index} as={"programs/" + index} href={{ pathname: "programs/" + index, query: queryData }}>
+                    <div className="card-master">
                       <div className="img-wrapper"><img src={program.image} /></div>
                       <div className="descriptions">
                         <h4>{program.title}</h4>

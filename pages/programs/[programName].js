@@ -23,7 +23,7 @@ export default function Program() {
               <i className='title'>{program.title}
                 <i className='genre'>{program.organizer} / {program.genre}</i>
               </i>
-              <i className='place'><span class="material-symbols-outlined">pin_drop</span>{program.type}</i>
+              <i className='place'><span className="material-symbols-outlined">pin_drop</span>{program.type}</i>
               <hr />
               <div className='save-wishlist'>
                 <span className="material-symbols-outlined">bookmark</span>
