@@ -347,10 +347,10 @@ footer {
   }
   > div:nth-of-type(1) {
     @media screen and (max-width: 479px) {
-    background: linear-gradient(to bottom, var(--color-1) 216px, var(--color-2) 216px);
+      background: linear-gradient(to bottom, var(--color-1) 216px, var(--color-2) 216px);
     }
     @media screen and (min-width: 480px) {
-    background: linear-gradient(to bottom, var(--color-1) 64px, var(--color-2) 64px);
+      background: linear-gradient(to bottom, var(--color-1) 64px, var(--color-2) 64px);
     }
     padding: 72px 12px 12px;
     > main {
@@ -414,5 +414,28 @@ footer {
       color: var(--color-1);
       font-size: 0.8em;
     }
+  }
+}
+
+.save-wishlist {
+  width: fit-content;
+  padding: 12px;
+  margin: 6px 0 0 0;
+  padding: 8px;
+  text-align: center;
+  background-color: var(--color-7);
+  color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  > .material-symbols-outlined {
+    margin-right: 6px;
+    line-height: 1em;
+    margin-left: 12px;
+  }
+  > p {
+    margin: 0;
+    margin-right: 12px;
+    line-height: 1.4em;
   }
 }
