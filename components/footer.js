@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -8,8 +7,8 @@ export default function Footer() {
         <main className='centered'>
           <section className='header'>
             <div>
-              <div className='school-emblem'><Image src="/school-emblem.svg" alt="HonjoHighSchool Logo" width={38} height={38} /></div>
-              <div className='fes-primary-logo'><Image src="/fes-primary-logo.svg" alt="Bunkasai 22 Logo" width={128} height={38} /></div>
+              <div className='school-emblem'><img src="/school-emblem.svg" alt="HonjoHighSchool Logo"/></div>
+              <div className='fes-primary-logo'><img src="/fes-primary-logo.svg" alt="Bunkasai 22 Logo"  /></div>
             </div>
             <p className='subtitle'>彩れ、青春の一ページ。</p>{/*!TODO ここ変数にする*/}
           </section>

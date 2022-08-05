@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Layout from "../components/layout";
-import Image from "next/image";
 import axios from "axios";
 import useSWR from "swr";
 
@@ -14,9 +13,9 @@ export default function Home() {
   return <div>hello {data.data.others.henshuu}!</div> */
 
     return (
-    <div>
-
-      <Image src="/poster-main.jpg" alt="HonjoHighSchool Logo" width={514} height={728} />
+    <div className="hero">
+        <div className="hero-img-wrap"><img src="/hero.png" alt="HonjoHighSchool Logo"  /></div>
+        <div className="title-img-wrap"><img src="/title.svg" alt="HonjoHighSchool Logo"  /></div>
     </div>
   );
 }

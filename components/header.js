@@ -1,18 +1,19 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState } from 'react'
+import { useRouter } from "next/router";
 
 export default function Header() {
   const [menuState, setMenuState] = useState(false);
+  const router = useRouter();
   const closeMenu = () => {
     setMenuState(!menuState)
     console.log('function called')
   }
 
   return (
-    <div id='navbar-master'>
-      <div className='school-emblem'><Image src="/school-emblem.svg" alt="HonjoHighSchool Logo" width={38} height={38} /></div>
-      <Link href='/'><div className='fes-primary-logo'><Image src="/fes-primary-logo.svg" alt="Bunkasai 22 Logo" width={128} height={38} /></div></Link>
+    <div id='navbar-master' current-path={router.asPath}>
+      <div className='school-emblem'><img src="/school-emblem.svg" alt="HonjoHighSchool Logo"  /></div>
+      <Link href='/'><div className='fes-primary-logo'><img src="/fes-primary-logo.svg" alt="Bunkasai 22 Logo" /></div></Link>
 
 
       <div className="hamburger-menu">
@@ -22,8 +23,8 @@ export default function Header() {
           <div>
             <header>
               <div>
-                <div className='school-emblem'><Image src="/school-emblem.svg" alt="HonjoHighSchool Logo" width={38} height={38} /></div>
-                <div className='fes-primary-logo'><Image src="/fes-primary-logo.svg" alt="Bunkasai 22 Logo" width={128} height={38} /></div>
+                <div className='school-emblem'><img src="/school-emblem.svg" alt="HonjoHighSchool Logo" /></div>
+                <div className='fes-primary-logo'><img src="/fes-primary-logo.svg" alt="Bunkasai 22 Logo"/></div>
               </div>
               <p className='subtitle'>彩れ、青春の一ページ。</p>{/*!TODO ここ変数にする*/}
             </header>
@@ -38,13 +39,13 @@ export default function Header() {
                 <Link href='/programs/'>開催プログラム一覧</Link>
               </li>
               <li onClick={closeMenu}>
-                <Link href='/'>文化祭トップ</Link>
+                <Link href='/notes/'>おねがい</Link>
               </li>
               <li onClick={closeMenu}>
-                <Link href='/greeting/'>ごあいさつ</Link>
+                <Link href='/docs/'>資料</Link>
               </li>
               <li onClick={closeMenu}>
-                <Link href='/programs/'>開催プログラム一覧</Link>
+                <Link href='/access/'>アクセス</Link>
               </li>
               <li>
                 <a href="https://www.metro.ed.jp/honjo-h/">本校ホームページ</a>

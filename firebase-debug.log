@@ -1,0 +1,21 @@
+[debug] [2022-08-05T02:26:39.820Z] ----------------------------------------------------------------------
+[debug] [2022-08-05T02:26:39.822Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\main\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2022-08-05T02:26:39.822Z] CLI Version:   11.4.2
+[debug] [2022-08-05T02:26:39.823Z] Platform:      win32
+[debug] [2022-08-05T02:26:39.823Z] Node Version:  v16.16.0
+[debug] [2022-08-05T02:26:39.824Z] Time:          Fri Aug 05 2022 11:26:39 GMT+0900 (Japan Standard Time)
+[debug] [2022-08-05T02:26:39.824Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-08-05T02:26:39.831Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-08-05T02:26:39.831Z] > authorizing via signed-in user (honjo.comp.club@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  H:\FesApp22\fes-catalog
+

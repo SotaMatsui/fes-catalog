@@ -46,6 +46,9 @@ a {
 
 .header {
   margin: calc(var(--gap-default) * 2) var(--gap-default) var(--gap-default);
+  img{
+    height: 38px;
+  }
   > h3 {
     font-family: serif;
     color: #590d22;
@@ -207,6 +210,16 @@ a {
   letter-spacing: 0;
   word-spacing: 0;
   padding: 30px 60px 0 30px;
+  >div{
+    display: flex;
+    align-items: center;
+  }
+  >div.school-emblem>img{
+    height: 38px;
+  }
+  >div.fes-primary-logo>img{
+    height: 32px;
+  }
   .menu-btn {
     position: absolute;
     display: flex;
@@ -241,6 +254,19 @@ a {
         width: 25px;
         top: 8px;
       }
+    }
+  }
+  &[current-path="/"]{
+    position: fixed;
+    width: 100%;
+    z-index: 80;
+  padding: 18px 60px 0 30px;
+    >.school-emblem,>.fes-primary-logo{
+      filter: saturate(0) brightness(0);
+    }
+    .menu-btn span{
+      position: relative;
+      --line-color:black;
     }
   }
 }
@@ -327,6 +353,9 @@ a {
         flex-direction: row;
         justify-content: flex-start;
       }
+      img{
+        height: 38px;
+      }
       > p.subtitle {
         line-height: 0;
         margin: 0.5em 0;
@@ -342,6 +371,8 @@ main.greeting {
 }
 
 footer {
+  position: relative;
+  z-index: 1;
   .centered {
     max-width: 980px;
   }
@@ -437,5 +468,24 @@ footer {
     margin: 0;
     margin-right: 12px;
     line-height: 1.4em;
+  }
+}
+
+
+.hero{
+  background: linear-gradient(to bottom, #3785f6 40%, #53b3fd 60%);
+  font-size: 0;
+  .hero-img-wrap{
+    img{
+      width: 100%;
+    }
+  }
+  .title-img-wrap{
+    background: transparent;
+    transform: translateY(-64px);
+    img{
+      width: 100%;
+      display: none;
+    }
   }
 }

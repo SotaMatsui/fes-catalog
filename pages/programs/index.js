@@ -10,11 +10,8 @@ export default function Programs(prgrmsList) {
 
   const { success, data} = getData();
   if (success == false || success == undefined) {
-    console.log('success == false || success == undefined')
     return <div>loading...</div>
   } else if(success == true){
-    console.log('success == true')
-    console.log(data)
     return (
       <>
         <div className="header">
@@ -25,15 +22,7 @@ export default function Programs(prgrmsList) {
             {
               data.data.explore.permanent.map((program,index) => {
                 const queryData = {
-                  index,
-                  prevURL: '/programs',
-                  title: program.title,
-                  image: program.image,
-                  genre: program.genre,
-                  organizer: program.organizer,
-                  type: program.type,
-                  shortDesc: program.shortDesc,
-                  longDesc: program.longDesc
+                  index
                 }
                 console.log(index)
                 return (
