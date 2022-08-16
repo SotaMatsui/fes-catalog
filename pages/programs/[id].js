@@ -8,10 +8,10 @@ import ProgramLayout from '../../components/layout-program';
 export default function Program() {
   const router = useRouter();
   const { success, data } = getData();
-  if (success == false || success == undefined || router.query.programName == undefined) {
+  if (success == false || success == undefined || router.query.id == undefined) {
     return <div>loading...</div>
   } else if (success == true) {
-    const program = data.data.explore.permanent[Number(router.query.programName)]
+    const program = data[Number(router.query.id)]
     return (
       <>
         <div className='view-wrapper'>
@@ -21,7 +21,7 @@ export default function Program() {
             </div>
             <div>
               <i className='title'>{program.title}
-                <i className='genre'>{program.organizer} / {program.genre}</i>
+                <i className='genre'>{program.orgName} / {program.category} : {program.genre}</i>
               </i>
               <i className='place'><span className="material-symbols-outlined">pin_drop</span>{program.type}</i>
               <hr />

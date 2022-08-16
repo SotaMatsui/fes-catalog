@@ -1,11 +1,30 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&family=Jost:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost&family=Noto+Sans+JP&display=swap");
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, "Noto Sans JP", "Yu Gothic", BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+  font-family: "Jost", -apple-system, "Noto Sans JP", "Yu Gothic", BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: white;
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 50%;
+    position: fixed;
+    left: 0;
+    z-index: -1;
+  }
+  &[data-current-url="/"]::before {
+    top: 0;
+    background-color: #3785f6;
+  }
+  &::after {
+    bottom: 0;
+    background-color: var(--color-10);
+  }
 }
 i {
   font-style: unset;
@@ -27,6 +46,11 @@ a {
   --color-3: #ffb3c1;
   --color-2: #ffccd5;
   --color-1: #fff0f3;
+  --color-1b: #edede9;
+  --color-1c: #d6ccc2;
+  --color-1d: #f5ebe0;
+  --color-1e: #e3d5ca;
+  --color-1f: #d5bdaf;
   /* --color-10: #073B4C;
   --color-9: #118AB2;
   --color-8: #06D6A0;
@@ -45,24 +69,27 @@ a {
   margin-right: auto;
 }
 
-.header {
+div.header {
   margin: calc(var(--gap-default) * 2) var(--gap-default) var(--gap-default);
-  img{
+  img {
     height: 38px;
   }
+  display: flex;
+  align-items: center;
+  &::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: black;
+    flex: 1;
+    margin-left: 12px;
+  }
   > h3 {
-    font-family: serif;
-    color: #590d22;
+    display: block;
+    color: black;
     font-size: 1.4em;
     font-weight: 400;
-    &::after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, var(--color-7) 15%, var(--color-10) 15%);
-      margin: 4px 0;
-    }
   }
 }
 
@@ -211,14 +238,14 @@ a {
   letter-spacing: 0;
   word-spacing: 0;
   padding: 30px 60px 0 30px;
-  >div{
+  > div {
     display: flex;
     align-items: center;
   }
-  >div.school-emblem>img{
+  > div.school-emblem > img {
     height: 38px;
   }
-  >div.fes-primary-logo>img{
+  > div.fes-primary-logo > img {
     height: 32px;
   }
   .menu-btn {
@@ -257,17 +284,18 @@ a {
       }
     }
   }
-  &[current-path="/"]{
+  &[current-path="/"] {
     position: fixed;
     width: 100%;
     z-index: 80;
-  padding: 18px 60px 0 30px;
-    >.school-emblem,>.fes-primary-logo{
+    padding: 18px 60px 0 30px;
+    > .school-emblem,
+    > .fes-primary-logo {
       filter: saturate(0) brightness(0);
     }
-    .menu-btn span{
+    .menu-btn span {
       position: relative;
-      --line-color:black;
+      --line-color: black;
     }
   }
 }
@@ -354,7 +382,7 @@ a {
         flex-direction: row;
         justify-content: flex-start;
       }
-      img{
+      img {
         height: 38px;
       }
       > p.subtitle {
@@ -374,6 +402,19 @@ main.greeting {
 footer {
   position: relative;
   z-index: 1;
+
+  .header {
+    margin: calc(var(--gap-default) * 2) var(--gap-default) var(--gap-default);
+    img {
+      height: 38px;
+    }
+    > h3 {
+      display: block;
+      color: black;
+      font-size: 1.4em;
+      font-weight: 400;
+    }
+  }
   .centered {
     max-width: 980px;
   }
@@ -472,40 +513,188 @@ footer {
   }
 }
 
-
-.hero{
+.hero {
   font-size: 0;
-  .hero-img-wrap{
-  background: linear-gradient(to bottom, #3785f6 40%, #53b3fd 60%);
-    img{
+  padding-bottom: 72px;
+  position: relative;
+  .hero-img-wrap {
+    background: linear-gradient(to bottom, #3785f6 40%, #53b3fd 60%);
+    img {
       width: 100%;
     }
   }
-  .title-img-wrap{
-      display: none;
-    img{
+  .title-img-wrap {
+    display: none;
+    img {
       width: 100%;
     }
   }
-  .subTitle{
+  .hero-desc {
+    width: 100%;
+    max-width: 320px;
+  }
+  .hero-date {
+    width: 100%;
+    max-width: 270px;
+  }
+  .subTitle {
     font-size: 2.6rem;
     line-height: 1;
     background: white;
     font-family: serif;
-    padding: 0 0 0 24px;
-    >p{
+    padding: 0 24px;
+    > p {
       margin: 0;
     }
-    .desc{
+    .desc {
       font-size: 1rem;
       margin: 4px;
     }
   }
-  .dates{
+  .dates {
     font-size: 2.8rem;
-    line-height: 0;
     background: white;
     padding: 0 28px;
-  font-family: 'Jost', sans-serif;
+    font-family: "Jost", sans-serif;
+    p {
+      margin: 0;
+    }
+  }
+  /*=== 9-1-4 矢印が動いてスクロールを促す  ====*/
+
+  /*スクロールダウン全体の場所*/
+  .scrolldown4 {
+    /*描画位置※位置は適宜調整してください*/
+    position: absolute;
+    bottom: 12px;
+    right: 50%;
+  }
+
+  /*Scrollテキストの描写*/
+  .scrolldown4 span {
+    /*描画位置*/
+    position: absolute;
+    left: -20px;
+    bottom: 0;
+    /*テキストの形状*/
+    color: black;
+    font-size: 9px;
+    letter-spacing: 0.05em;
+    /*縦書き設定*/
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+  }
+
+  /* 矢印の描写 */
+  .scrolldown4:before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom: 0;
+    right: -6px;
+    /*矢印の形状*/
+    width: 1px;
+    height: 20px;
+    background: black;
+    transform: skewX(-31deg);
+  }
+
+  .scrolldown4:after {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /*矢印の形状*/
+    width: 1px;
+    height: 56px;
+    background: black;
+  }
+}
+
+.countdown-towards-1stday {
+  font-family: "Jost", "Noto Sans JP";
+  font-size: 1.2em;
+  padding: 28px;
+  background-color: black;
+  color: white;
+  p {
+    margin: 2px 0;
+  }
+  span {
+    font-size: 2em;
+  }
+}
+
+.theme-summary {
+  img {
+    max-width: 100%;
+    padding: 0 24px;
+  }
+  p {
+    padding: 0 24px;
+  }
+}
+
+.outline-summary {
+  img {
+    max-width: 100%;
+  }
+  section {
+    padding: 24px;
+    width: 100%;
+    > h4 {
+      margin-top: 0;
+    }
+    > div {
+      padding: 12px;
+      border: solid 1px rgb(0 0 0 / 15%);
+      margin-top: 8px;
+      p {
+        margin: 0 0 12px 0;
+      }
+      i {
+        font-size: 0.8em;
+      }
+    }
+
+    &:nth-of-type(1) {
+      filter: invert(1);
+      background: white;
+    }
+  }
+
+  .map-wrap {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 75%;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.catalog-introduction {
+  p {
+    padding: 0 24px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  main {
+    display: flex;
+    max-height: 100vh;
+    > div.hero-wrap {
+    }
+    > div.infos-wrap {
+      overflow: scroll;
+      flex: 1;
+    }
   }
 }

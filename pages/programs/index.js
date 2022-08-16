@@ -20,18 +20,17 @@ export default function Programs(prgrmsList) {
         <div className="cards-wrapper">
           <div className="cards">
             {
-              data.data.explore.permanent.map((program,index) => {
+              Object.keys(data).map((id,index) => {
                 const queryData = {
                   index
                 }
-                console.log(index)
                 return (
-                  <Link key={index} as={"programs/" + index} href={{ pathname: "programs/" + index, query: queryData }}>
+                  <Link key={Number(id)} as={"programs/" + Number(id)} href={{ pathname: "programs/" + Number(id), query: queryData }}>
                     <div className="card-master">
-                      <div className="img-wrapper"><img src={program.image} /></div>
+                      <div className="img-wrapper"><img src="/hero.png" /></div>
                       <div className="descriptions">
-                        <h4>{program.title}</h4>
-                        <i>{program.genre} / {program.organizer}</i>
+                        <h4>{data[Number(id)].title}</h4>
+                        <i>{data[Number(id)].category} / {data[Number(id)].orgName}</i>
                       </div>
                     </div>
                   </Link>
