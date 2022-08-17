@@ -17,20 +17,20 @@ export default function Program() {
         <div className='view-wrapper'>
           <div className="view-master">
             <div className='infos'>
-              <img src={data[Number(id).image] == undefined ? '/noimage.png' : data[Number(id)].image} />
+              <img src={program.image == undefined ? '/noimage.png' : program.image} />
             </div>
             <div>
               <i className='title'>{program.title}
                 <i className='genre'>{program.orgName} / {program.category} : {program.genre}</i>
               </i>
-              <i className='place'><span className="material-symbols-outlined">pin_drop</span>{data[Number(id)].place}</i>
+              <i className='place'><span className="material-symbols-outlined">pin_drop</span>{program.place}</i>
               <hr />
               <div className='save-wishlist'>
                 <span className="material-symbols-outlined">bookmark</span>
                 <p>ウィッシュリストに保存</p>
               </div>
-              <p className='shortDesc'>{data[Number(id)].shortDesc}</p>
-              <p className='longDesc'>{data[Number(id)].longDesc}</p>
+              <p className='shortDesc'>{program.shortDesc}</p>
+              <p className='longDesc'>{program.longDesc}</p>
             </div>
           </div>
         </div>

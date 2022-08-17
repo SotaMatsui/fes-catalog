@@ -28,7 +28,7 @@ export default function Programs(prgrmsList) {
                 return (
                   <Link key={Number(id)} as={"programs/" + Number(id)} href={{ pathname: "programs/" + Number(id), query: queryData }}>
                     <div className="card-master">
-                      <div className="img-wrapper"><img src="/hero.png" /></div>
+                      <div className="img-wrapper"><img src={data[Number(id)].image == undefined ? '/noimage.png' : data[Number(id)].image} /></div>
                       <div className="descriptions">
                         <h4>{data[Number(id)].title}</h4>
                         <i>{data[Number(id)].category} / {data[Number(id)].orgName}</i>
