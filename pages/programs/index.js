@@ -11,7 +11,8 @@ export default function Programs(prgrmsList) {
   const { success, data} = getData();
   if (success == false || success == undefined) {
     return <div>loading...</div>
-  } else if(success == true){
+  } else if (success == true) {
+    console.log(data);
     return (
       <>
         <div className="header">
@@ -20,18 +21,17 @@ export default function Programs(prgrmsList) {
         <div className="cards-wrapper">
           <div className="cards">
             {
-              data.data.explore.permanent.map((program,index) => {
+              Object.keys(data).map((id, index) => {
                 const queryData = {
                   index
                 }
-                console.log(index)
                 return (
-                  <Link key={index} as={"programs/" + index} href={{ pathname: "programs/" + index, query: queryData }}>
+                  <Link key={index} as={"programs/" + id} href={{ pathname: "programs/" + id, query: queryData }}>
                     <div className="card-master">
-                      <div className="img-wrapper"><img src={program.image} /></div>
+                      <div className="img-wrapper"><img src={data[Number(id).image] == undefined ? '/noimage.png' : data[Number(id)].image}/></div>
                       <div className="descriptions">
-                        <h4>{program.title}</h4>
-                        <i>{program.genre} / {program.organizer}</i>
+                        <h4>{data[Number(id)].title}</h4>
+                        <i>{data[Number(id)].category} / {data[Number(id)].orgName}</i>
                       </div>
                     </div>
                   </Link>

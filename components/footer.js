@@ -22,10 +22,7 @@ export default function Footer() {
                 <Link href='/notes/'>おねがい</Link>
               </li>
               <li>
-                <Link href='/programs/'>展示型企画</Link>
-              </li>
-              <li>
-                <Link href='/programs/'>イベント型企画</Link>
+                <Link href='/programs/'>企画一覧</Link>
               </li>
             </ul>
             <ul>
@@ -50,6 +47,9 @@ export default function Footer() {
               </li>
               <li>
                 <Link href='/editors-note/'>編集後記</Link>
+              </li>
+              <li>
+                <Link href='/decorations/'>校内装飾</Link>
               </li>
             </ul>
           </section>
