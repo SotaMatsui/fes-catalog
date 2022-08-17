@@ -12,19 +12,19 @@ export default function Creations() {
         <sections>
           <h4>本所 花子</h4>
           <p>使用場所ポスター表紙とか</p>
-          <img src="/monden.jpg" />
+          <img src="/monden.jpeg" />
         </sections>
         <hr/>
         <sections>
           <h4>本所 花子</h4>
           <p>使用場所ポスター表紙とか</p>
-          <img src="/hirooka.png" />
+          <img src="/hirooka.jpeg" />
         </sections>
         <hr/>
         <sections>
           <h4>本所 花子</h4>
           <p>使用場所ポスター表紙とか</p>
-          <img src="/oosawa.jpg" />
+          <img src="/oosawa.jpeg" />
         </sections>
       </main>
     </div>
