@@ -332,6 +332,7 @@ div.header {
   background-size: calc(200% + 64px);
   background-position-x: left;
   background-image: linear-gradient(to right, var(--color-7) calc(50% + 72px), var(--color-1) calc(50% + 72px));
+  /* background:no-repeat center/100% url('/nagamine-shi.png') , no-repeat left/calc(200% + 64px) linear-gradient(to right, var(--color-7) calc(50% + 72px), var(--color-1) calc(50% + 72px)); */
   left: 100%;
   transition: all 0.5s;
   > div {
@@ -364,14 +365,21 @@ div.header {
         }
       }
     }
-    ul.school-infos {
-      padding: 0;
-      li {
-        list-style: none;
-        color: var(--color-10);
-        text-align: end;
-        span.material-symbols-outlined {
-          font-size: 1em;
+    div {
+      display: flex;
+      .accent {
+        width: 90px;
+      }
+      ul.school-infos {
+        padding: 0;
+        flex: 1;
+        li {
+          list-style: none;
+          color: var(--color-10);
+          text-align: end;
+          span.material-symbols-outlined {
+            font-size: 1em;
+          }
         }
       }
     }
@@ -577,7 +585,7 @@ footer {
     bottom: 0;
     /*テキストの形状*/
     color: black;
-    font-size: 9px;
+    font-size: 15px;
     letter-spacing: 0.05em;
     /*縦書き設定*/
     -ms-writing-mode: tb-rl;
@@ -698,9 +706,92 @@ footer {
   }
 }
 
-
-.creations{
-  img{
+.creations {
+  img {
     max-width: 100%;
+  }
+}
+
+.on-live {
+  margin: var(--gap-default);
+  padding: calc(var(--gap-default) * 0.5);
+  /* filter: drop-shadow(0 0 11px rgb(0 0 0 / 16%)); */
+  border-radius: 12px;
+  position: absolute;
+  width: calc(100% - (var(--gap-default) * 2));
+  top: 72px;
+  left: 0;
+  background: var(--color-1);
+  display: none;
+  >*{
+    position: relative;
+    z-index: 1;
+  }
+  > section {
+    &:first-of-type{
+      padding-bottom:  calc(var(--gap-default) * 0.5);
+    }
+    &:not(:first-of-type) {
+      border-top: solid 1px var(--color-10);
+      padding-top: calc(var(--gap-default) * 0.5);
+    }
+    text-align: end;
+    p.header,
+    p.header > span {
+      font-size: 1rem !important;
+      text-align: start;
+      span.material-symbols-outlined {
+        color: red;
+      }
+    }
+    p,
+    h4,
+    h5 {
+      margin: 0;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -24px;
+    left: 75%;
+    margin-left: -15px;
+    background: inherit;
+    height: 32px;
+    width: 32px;
+    z-index: 0;
+    transform: rotate(45deg) translate(-25%, -25%);
+    color: inherit;
+  }
+}
+
+div.react-tabs {
+  ul.react-tabs__tab-list {
+    display: flex;
+    border: none;
+    > li.react-tabs__tab {
+      flex: 1;
+      text-align: center;
+      border: none;
+      position: initial;
+      &[aria-selected="true"] {
+        border-bottom: solid 2px black;
+      }
+      &:focus {
+        outline: inherit;
+        &:after {
+          display: none;
+        }
+      }
+      &[data-display-on-live-when-disabled="true"][aria-selected="false"]{
+        margin-top: 280px;
+        .on-live{
+          display: block;
+        }
+      }
+      &:first-of-type[aria-selected="true"]{
+        margin-top: 280px;
+      }
+    }
   }
 }

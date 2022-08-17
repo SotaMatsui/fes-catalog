@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
   return getLayout(<>
     <Head>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0" />
+      <meta name="robots" content="noindex"/>
       <title>本所祭22</title>
     </Head>
     <Component {...pageProps} />

@@ -2,7 +2,7 @@ import Layout from "../components/layout";
 import Countdown from "react-countdown";
 
 export default function Home() {
-  var countdownDate = new Date("2022/09/09 10:00:00+0900");
+  var countdownDate = new Date("2022/09/09 9:00:00+0900");
   return (
     <>
       <div className="hero-wrap">
@@ -16,7 +16,7 @@ export default function Home() {
             <img className="hero-date" src="/hero-date.svg" alt="2022/9/9 -> 9/10" />
           </div>
   
-          <div className="scrolldown4"><span>FES22&quot;NIJI&quot;</span></div>
+          <div className="scrolldown4"><span>next</span></div>
         </div>
         <div className="countdown-towards-1stday" >
           <p>生徒公開日まで</p>

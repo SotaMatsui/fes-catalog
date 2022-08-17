@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <div id='navbar-master' current-path={router.asPath}>
-      <div className='school-emblem'><img src="/school-emblem.svg" alt="HonjoHighSchool Logo"  /></div>
+      <div className='school-emblem'><img src="/school-emblem.svg" alt="HonjoHighSchool Logo" /></div>
       <Link href='/'><div className='fes-primary-logo'><img src="/fes-primary-logo.svg" alt="Bunkasai 22 Logo" /></div></Link>
 
 
@@ -24,7 +24,7 @@ export default function Header() {
             <header>
               <div>
                 <div className='school-emblem'><img src="/school-emblem.svg" alt="HonjoHighSchool Logo" /></div>
-                <div className='fes-primary-logo'><img src="/fes-primary-logo.svg" alt="Bunkasai 22 Logo"/></div>
+                <div className='fes-primary-logo'><img src="/fes-primary-logo.svg" alt="Bunkasai 22 Logo" /></div>
               </div>
               <p className='subtitle'>彩れ、青春の一ページ。</p>{/*!TODO ここ変数にする*/}
             </header>
@@ -51,18 +51,20 @@ export default function Header() {
                 <a href="https://www.metro.ed.jp/honjo-h/">本校ホームページ</a>
               </li>
             </ul>
-
-            <ul className='school-infos'>
-              <li>
-                東京都立本所高等学校
-              </li>
-              <li>
-                <span className="material-symbols-outlined">pin_drop</span>東京都墨田区向島3-37-25
-              </li>
-              <li>
-                <span className="material-symbols-outlined">call</span>03-3622-0344
-              </li>
-            </ul>
+            <div>
+              <img className='accent' src='/nagamine-shi.png'/>
+              <ul className='school-infos'>
+                <li>
+                  東京都立本所高等学校
+                </li>
+                <li>
+                  <span className="material-symbols-outlined">pin_drop</span>東京都墨田区向島3-37-25
+                </li>
+                <li>
+                  <span className="material-symbols-outlined">call</span>03-3622-0344
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
