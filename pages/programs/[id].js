@@ -11,7 +11,7 @@ export default function Program() {
   if (success == false || success == undefined || router.query.id == undefined) {
     return <div>loading...</div>
   } else if (success == true) {
-    const id = router.query.id
+    const program = data[Number(router.query.id)]
     return (
       <>
         <div className='view-wrapper'>
@@ -20,8 +20,8 @@ export default function Program() {
               <img src={data[Number(id).image] == undefined ? '/noimage.png' : data[Number(id)].image} />
             </div>
             <div>
-              <i className='title'>{data[Number(id)].title}
-                <i className='genre'>{data[Number(id)].orgName} / {data[Number(id)].genre}</i>
+              <i className='title'>{program.title}
+                <i className='genre'>{program.orgName} / {program.category} : {program.genre}</i>
               </i>
               <i className='place'><span className="material-symbols-outlined">pin_drop</span>{data[Number(id)].place}</i>
               <hr />
