@@ -10,20 +10,20 @@ export default function Creations() {
       </div>
       <main className="creations">
         <sections>
-          <h4>本所 花子</h4>
-          <p>使用場所ポスター表紙とか</p>
+          <span>2年E組</span>
+          <h4>門田 真奈</h4> 
           <img src="/monden.jpeg" />
         </sections>
         <hr/>
         <sections>
-          <h4>本所 花子</h4>
-          <p>使用場所ポスター表紙とか</p>
+          <span>3年B組</span>
+          <h4>広岡 佑弥</h4>
           <img src="/hirooka.jpeg" />
         </sections>
         <hr/>
         <sections>
-          <h4>本所 花子</h4>
-          <p>使用場所ポスター表紙とか</p>
+          <span>3年B組</span>
+          <h4>大澤 向日葵</h4>
           <img src="/oosawa.jpeg" />
         </sections>
       </main>

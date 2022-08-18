@@ -48,6 +48,7 @@ export default function Programs(prgrmsList) {
                     const queryData = {
                       index
                     }
+                    console.log(index)
                     return (
                       <Link key={Number(id)} as={"programs/" + Number(id)} href={{ pathname: "programs/" + Number(id), query: queryData }}>
                         <div className="card-master">
