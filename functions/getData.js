@@ -8,5 +8,5 @@ export default function getData() {
 
   if (error) return { success:false,data: error }
   if (!data) return { success: undefined, data: 'loading...' }
-  return { success: true, data: data.data };
+  return { success: true, data: data.data.main, timing: data.data.timing };
 }

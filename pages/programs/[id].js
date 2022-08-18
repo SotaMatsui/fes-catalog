@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
 import { useRouter } from "next/router";
-import getData from '../../functions/main';
+import getData from '../../functions/getData';
 import ProgramLayout from '../../components/layout-program';
 
 

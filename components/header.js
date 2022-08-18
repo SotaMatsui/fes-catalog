@@ -7,7 +7,6 @@ export default function Header() {
   const router = useRouter();
   const closeMenu = () => {
     setMenuState(!menuState)
-    console.log('function called')
   }
 
   return (
