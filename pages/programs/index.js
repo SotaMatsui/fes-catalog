@@ -28,7 +28,7 @@ export default function Programs(prgrmsList) {
             <Tab data-display-on-live-when-disabled="true">
               <div className="on-live">
                 <section>
-                  <p className="header live"><div className="live-wrap"><div class="circle"></div></div><span>Live<span className="place"> : 第一選択教室</span></span></p>
+                  <p className="header live"><div className="live-wrap"><div className="circle"></div></div><span>Live<span className="place"> : 第一選択教室</span></span></p>
                   <h4>響愛～みんなで奏でるカラフルな愛～</h4>
                   <i>ブラスバンド部</i>
                   <h5>12:00-13:00</h5>
