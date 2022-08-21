@@ -13,6 +13,8 @@ export default function Programs(prgrmsList) {
   const { success, data, timing } = getData();
   const [onLive, setOnLive] = useState(0);
   const [favs, setFavs] = useState([]);
+  const lives = [1002, 103];
+  const upComing = [113];
   useEffect(() => {
     if (localStorage.getItem('favs') != undefined) {
       let _arr = localStorage.getItem('favs').split(',').map(str => parseInt(str, 10));
@@ -71,6 +73,7 @@ export default function Programs(prgrmsList) {
                           <div className="card-master">
                             <div
                               className="img-wrapper"
+                              style={data[Number(id)].image != undefined & data[Number(id)].image?.indexOf('cut-vis') != -1 ? { filter: `hue-rotate(${Number(id) * 1420.4567 + 9.8765}deg)` } : {opacity:'1'}}
                               data-is-cutvis={data[Number(id)].image != undefined & data[Number(id)].image?.indexOf('cut-vis') != -1 ? true : false}
                             >
                               <img
@@ -108,22 +111,27 @@ export default function Programs(prgrmsList) {
                             y
                           }
                           return (
-                            <div className="wrap" key={y} style={{ backgroundImage: `url(${data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image})` }}>
-                              <Link key={Number(x)} as={"programs/" + Number(x)} href={{ pathname: "programs/" + Number(x), query: queryData }}>
-                                <div className="card-master">
-                                  <div className="img-wrapper"><img src={data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image} /></div>
-                                  <div className="descriptions">
-                                    <h4>{data[Number(x)].title}</h4>
-                                    <i>{data[Number(x)].category} / {data[Number(x)].orgName}</i>
+                            <div
+                              key={y}
+                              style={data[Number(x)].image != undefined & data[Number(x)].image?.indexOf('cut-vis') != -1 ? { filter: `hue-rotate(${Number(x) * 1420.4567 + 9.8765}deg)` } : { opacity: '1' }}
+                              data-is-cutvis={data[Number(x)].image != undefined & data[Number(x)].image?.indexOf('cut-vis') != -1 ? true : false}>
+                              <div className="wrap" key={y} style={{ backgroundImage: `url(${data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image})` }}>
+                                <Link key={Number(x)} as={"programs/" + Number(x)} href={{ pathname: "programs/" + Number(x), query: queryData }}>
+                                  <div className="card-master">
+                                    <div className="img-wrapper"><img src={data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image} /></div>
+                                    <div className="descriptions">
+                                      <h4>{data[Number(x)].title}</h4>
+                                      <i>{data[Number(x)].category} / {data[Number(x)].orgName}</i>
+                                    </div>
                                   </div>
-                                </div>
-                              </Link>
-                              <span
-                                className="material-symbols-outlined favorite"
-                                data-is-fav={favs.indexOf(Number(x)) != -1 ? 'true' : 'false'}
-                                onClick={() => setFavorite(Number(x))}>
-                                favorite
-                              </span>
+                                </Link>
+                                <span
+                                  className="material-symbols-outlined favorite"
+                                  data-is-fav={favs.indexOf(Number(x)) != -1 ? 'true' : 'false'}
+                                  onClick={() => setFavorite(Number(x))}>
+                                  favorite
+                                </span>
+                              </div>
                             </div>
                           )
                         })}
@@ -137,31 +145,38 @@ export default function Programs(prgrmsList) {
           <TabPanel>
             <div className="cards-wrapper">
               <div className="cards-timetable">
-                {
+                {favs.length != 0?
                   favs.map((x, y) => {
                     const queryData = {
                       y
                     }
                     return (
-                      <div className="wrap" key={y} style={{ backgroundImage: `url(${data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image})` }}>
-                        <Link key={Number(x)} as={"programs/" + Number(x)} href={{ pathname: "programs/" + Number(x), query: queryData }}>
-                          <div className="card-master">
-                            <div className="img-wrapper"><img src={data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image} /></div>
-                            <div className="descriptions">
-                              <h4>{data[Number(x)].title}</h4>
-                              <i>{data[Number(x)].category} / {data[Number(x)].orgName}</i>
+                      <div
+                        key={y}
+                        style={data[Number(x)].image != undefined & data[Number(x)].image?.indexOf('cut-vis') != -1 ? { filter: `hue-rotate(${Number(x) * 1420.4567 + 9.8765}deg)` } : { opacity: '1' }}
+                        data-is-cutvis={data[Number(x)].image != undefined & data[Number(x)].image?.indexOf('cut-vis') != -1 ? true : false}>
+                        <div className="wrap" key={y} style={{ backgroundImage: `url(${data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image})` }}>
+                          <Link key={Number(x)} as={"programs/" + Number(x)} href={{ pathname: "programs/" + Number(x), query: queryData }}>
+                            <div className="card-master">
+                              <div className="img-wrapper"><img src={data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image} /></div>
+                              <div className="descriptions">
+                                <h4>{data[Number(x)].title}</h4>
+                                <i>{data[Number(x)].category} / {data[Number(x)].orgName}</i>
+                              </div>
                             </div>
-                          </div>
-                        </Link>
-                        <span
-                          className="material-symbols-outlined favorite"
-                          data-is-fav={favs.indexOf(Number(x)) != -1 ? 'true' : 'false'}
-                          onClick={() => setFavorite(Number(x))}>
-                          favorite
-                        </span>
+                          </Link>
+                          <span
+                            className="material-symbols-outlined favorite"
+                            data-is-fav={favs.indexOf(Number(x)) != -1 ? 'true' : 'false'}
+                            onClick={() => setFavorite(Number(x))}>
+                            favorite
+                          </span>
+                        </div>
                       </div>
                     )
                   })
+                  :
+                  <p>まだ何もお気に入りに登録されていません</p>
                 }
               </div>
             </div>

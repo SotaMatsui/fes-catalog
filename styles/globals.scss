@@ -128,13 +128,13 @@ div.header {
           font-size: 0;
           border-radius: 8px;
           overflow: hidden;
-          border: solid 1px rgb(0 0 0 / 10%);
-          background: no-repeat center/cover url("/noimage.png");
+          border: solid 1px rgb(230 230 230);
+          background: #ff7272;
           position: relative;
           &[data-is-cutvis="true"] {
             > img {
               filter: brightness(1.1);
-              mix-blend-mode: darken;
+              mix-blend-mode: screen;
             }
           }
           > img {
@@ -171,6 +171,17 @@ div.header {
   .cards-timetable {
     margin-left: auto;
     margin-right: auto;
+    > div {
+      margin: 8px auto;
+      &[data-is-cutvis="true"] {
+        background-color: #ff7272;
+        border-radius: 8px;
+        overflow: hidden;
+        .wrap{
+          mix-blend-mode: lighten;
+        }
+      }
+    }
     .wrap {
       border-radius: 8px;
       background-size: cover;
@@ -178,7 +189,6 @@ div.header {
       .card-master {
         cursor: pointer;
         display: flex;
-        margin: 8px auto;
         gap: 8px;
         padding: 6px;
         border-radius: 8px;
@@ -925,10 +935,10 @@ div.react-tabs {
         }
       }
       &[data-type="programs"],
-      &[data-type="times"]{
+      &[data-type="times"] {
         flex: 1;
       }
-      &[data-type="favs"]{
+      &[data-type="favs"] {
         flex: 0;
       }
     }
