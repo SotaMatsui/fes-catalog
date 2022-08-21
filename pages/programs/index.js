@@ -15,6 +15,7 @@ export default function Programs(prgrmsList) {
   const { success, data, timing } = getData();
   const [onLive, setOnLive] = useState(0);
   const [favs, setFavs] = useState([]);
+  const [filter, setFilter] = useState("すべて");
 
   useEffect(() => {
     if (localStorage.getItem('favs') != undefined && localStorage.getItem('favs') != '') {
@@ -138,6 +139,17 @@ export default function Programs(prgrmsList) {
           </TabList>
 
           <TabPanel>
+            <div className="filters">
+              <span className="material-symbols-outlined">filter_list</span>
+              <select onChange={(e) => { setFilter(e.target.value) }}>
+                <option value="すべて">すべて</option>
+                <option value="パフォーマンス">パフォーマンス</option>
+                <option value="イベント">イベント</option>
+                <option value="アトラクション">アトラクション</option>
+                <option value="映像">映像</option>
+                <option value="展示">展示・販売（配布）</option>
+              </select>
+            </div>
             <div className="cards-wrapper">
               <div className="cards">
                 {
@@ -145,33 +157,35 @@ export default function Programs(prgrmsList) {
                     const queryData = {
                       index
                     }
-                    return (
-                      <div className="card-wrapper" key={index}>
-                        <Link key={Number(id)} as={"programs/" + Number(id)} href={{ pathname: "programs/" + Number(id), query: queryData }}>
-                          <div className="card-master">
-                            <div
-                              className="img-wrapper"
-                              style={data[Number(id)].image != undefined & data[Number(id)].image?.indexOf('cut-vis') != -1 ? { filter: `hue-rotate(${Number(id) * 1420.4567 + 9.8765}deg)` } : { opacity: '1' }}
-                              data-is-cutvis={data[Number(id)].image != undefined & data[Number(id)].image?.indexOf('cut-vis') != -1 ? true : false}
-                            >
-                              <img
-                                src={data[Number(id)].image == undefined ? '/noimage.png' : data[Number(id)].image}
-                                alt={data[Number(id)].title}
-                              />
+                    if (data[Number(id)].category.indexOf(filter) != -1 || filter == "すべて") {
+                      return (
+                        <div className="card-wrapper" key={index}>
+                          <Link key={Number(id)} as={"programs/" + Number(id)} href={{ pathname: "programs/" + Number(id), query: queryData }}>
+                            <div className="card-master">
+                              <div
+                                className="img-wrapper"
+                                style={data[Number(id)].image != undefined & data[Number(id)].image?.indexOf('cut-vis') != -1 ? { filter: `hue-rotate(${Number(id) * 1420.4567 + 9.8765}deg)` } : { opacity: '1' }}
+                                data-is-cutvis={data[Number(id)].image != undefined & data[Number(id)].image?.indexOf('cut-vis') != -1 ? true : false}
+                              >
+                                <img
+                                  src={data[Number(id)].image == undefined ? '/noimage.png' : data[Number(id)].image}
+                                  alt={data[Number(id)].title}
+                                />
+                              </div>
+                              <div className="descriptions">
+                                <h4>{data[Number(id)].title}</h4>
+                                <i>{data[Number(id)].category} / {data[Number(id)].orgName}</i>
+                              </div>
                             </div>
-                            <div className="descriptions">
-                              <h4>{data[Number(id)].title}</h4>
-                              <i>{data[Number(id)].category} / {data[Number(id)].orgName}</i>
-                            </div>
-                          </div>
-                        </Link>
-                        <span className="material-symbols-outlined favorite"
-                          data-is-fav={favs.indexOf(Number(id)) != -1 ? 'true' : 'false'}
-                          onClick={() => setFavorite(Number(id))}>
-                          favorite
-                        </span>
-                      </div>
-                    )
+                          </Link>
+                          <span className="material-symbols-outlined favorite"
+                            data-is-fav={favs.indexOf(Number(id)) != -1 ? 'true' : 'false'}
+                            onClick={() => setFavorite(Number(id))}>
+                            favorite
+                          </span>
+                        </div>
+                      )
+                    }
                   })}
               </div>
             </div>

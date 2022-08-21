@@ -476,7 +476,7 @@ div.header {
     padding: 18px 60px 0 30px;
     > .school-emblem,
     > .fes-primary-logo {
-      @media screen and (max-width: 419px) {
+      @media screen and (max-width: 489px) {
         filter: saturate(0) brightness(0);
       }
     }
@@ -494,7 +494,7 @@ div.header {
   display: none;
   &:checked ~ {
     .menu-content {
-      left: calc(100vw - 430px);
+      left: 0;
       background-position-x: right;
     }
     .menu-btn {
@@ -514,6 +514,15 @@ div.header {
     }
   }
 }
+@media screen and (min-width: 980px) {
+  .menu-content {
+    max-width: 430px;
+  }
+  #menu-btn-check:checked ~ .menu-content {
+    left: calc(100vw - 430px);
+    background-position-x: right;
+  }
+}
 .menu-content {
   width: 100%;
   height: 100%;
@@ -527,10 +536,6 @@ div.header {
   /* background:no-repeat center/100% url('/nagamine-shi.png') , no-repeat left/calc(200% + 64px) linear-gradient(to right, var(--color-7) calc(50% + 72px), var(--color-1) calc(50% + 72px)); */
   left: 100%;
   transition: all 0.5s;
-
-  @media screen and (min-width: 980px) {
-    max-width: 430px;
-  }
 
   > div {
     padding: 100px 16px 0 64px;
@@ -891,7 +896,7 @@ section#mobile .hero {
   }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 490px) {
   main {
     display: flex;
     gap: 72px;
@@ -912,7 +917,7 @@ section#mobile .hero {
 
 #on-live {
   background: var(--nav-tab-back);
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 489px) {
     &[data-current="1"] {
       display: none;
     }
@@ -945,6 +950,7 @@ section#mobile .hero {
   --nav-tab-back: rgb(246 246 246 / 80%);
 }
 div.react-tabs {
+  background: white;
   ul.react-tabs__tab-list {
     display: flex;
     border: none;
@@ -1073,17 +1079,17 @@ main {
 section#top {
   background: white;
 }
-@media screen and (max-width: 419px) {
+@media screen and (max-width: 489px) {
   section#bigger {
-    display: none;
+    display: none !important;
   }
 }
 
-@media screen and (min-width: 420px) {
+@media screen and (min-width: 490px) {
   section#mobile {
-    display: none;
+    display: none !important;
   }
-  body{
+  body {
     background: white;
   }
 }
@@ -1173,8 +1179,8 @@ section#bigger {
     }
     .double {
       display: flex;
-    align-items: flex-start; 
-    flex-wrap: wrap;
+      align-items: flex-start;
+      flex-wrap: wrap;
       > img {
         flex: 1;
       }
@@ -1188,6 +1194,24 @@ section#bigger {
   }
 }
 
-body[data-current-url="/programs/"] #__next>main{
+body[data-current-url="/programs/"] #__next > main {
   background-color: rgb(246 246 246);
+}
+
+
+.filters{
+  text-align: end;
+  .material-symbols-outlined{
+    transform: translateY(8px);
+  }
+select{
+  border: none;
+  border-bottom: solid 2px black;
+  border-radius: 0;
+  background: transparent;
+  color: black;
+  font-size: 1rem;
+  margin:  8px;
+  padding: 6px;
+}
 }
