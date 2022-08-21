@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
   }, [router.asPath]);
   return getLayout(<>
     <Head>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       <meta name="robots" content="noindex"/>
       <title>本所祭22</title>
     </Head>
