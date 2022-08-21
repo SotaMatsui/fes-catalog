@@ -3,7 +3,11 @@ import axios from "axios";
 
 
 export default function getData() {
-  const fetcher = () => axios.get('https://fesbrochuredata.web.app/fes22.data.json');
+  const timestamp = new Date()
+  timestamp.setMinutes(0)
+  timestamp.setSeconds(0)
+  timestamp.setMilliseconds(0)
+  const fetcher = () => axios.get('https://fesbrochuredata.web.app/fes22.data.json?timestamp='+timestamp.getTime); 
   const { data, error } = useSWR('maindata', fetcher);
 
   if (error) return { success:false,data: error }

@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { useRouter } from "next/router";
 import getData from '../../functions/getData';
 import ProgramLayout from '../../components/layout-program';
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function Program() {
   const router = useRouter();
-  const { success, data } = getData();
+  const { success, data, timing } = getData();
   const [favs, setFavs] = useState([]);
   useEffect(() => {
     if (localStorage.getItem('favs') != undefined) {
@@ -47,11 +47,25 @@ export default function Program() {
                   data-is-fav={favs.indexOf(Number(program.ID)) != -1 ? 'true' : 'false'}
                   onClick={() => setFavorite(Number(program.ID))}>favorite</span>
               </i>
-              {/*
-              <div className='save-wishlist'>
-                <span className="material-symbols-outlined">bookmark</span>
-                <p>ウィッシュリストに保存</p>
-              </div> */}
+              <hr/>
+              {timing[program.ID] != undefined ?
+                timing[program.ID] == "TBC"?
+                Object.keys(timing[program.ID].time).map((x, y) => {
+                return (
+                  <section key={y}>
+                    <h4>{x}</h4>
+                    <ul>
+                      {timing[program.ID].time[x].map((a, b) => {
+                        return <li key={b}>{a.start}~{a.end}</li>
+                      })}
+                    </ul>
+                  </section>
+                )
+                })
+                  :<p>開催時刻は未定です</p>
+                :
+              <p>時間指定はありません</p>  
+            }
               <p className='shortDesc'>{program.shortDesc}</p>
               <p className='longDesc'>{program.longDesc}</p>
             </div>
