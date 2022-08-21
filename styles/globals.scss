@@ -133,7 +133,7 @@ div.header {
           position: relative;
           &[data-is-cutvis="true"] {
             > img {
-              filter: brightness(1.1);
+              filter: brightness(1.1) invert(1);
               mix-blend-mode: screen;
             }
           }

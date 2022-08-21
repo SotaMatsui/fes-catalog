@@ -16,11 +16,14 @@ export default function Programs(prgrmsList) {
   const lives = [1002, 103];
   const upComing = [113];
   useEffect(() => {
-    if (localStorage.getItem('favs') != undefined) {
+    if (localStorage.getItem('favs') != undefined && localStorage.getItem('favs') != '') {
       let _arr = localStorage.getItem('favs').split(',').map(str => parseInt(str, 10));
       setFavs(_arr)
     }
   }, [])
+  useEffect(() => {
+    console.log(favs)
+  })
 
   if (success == false || success == undefined) {
     return <div>loading...</div>
