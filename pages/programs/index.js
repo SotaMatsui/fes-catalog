@@ -66,7 +66,7 @@ export default function Programs(prgrmsList) {
                       index
                     }
                     return (
-                      <div className="card-wrapper">
+                      <div className="card-wrapper" key={index}>
                         <Link key={Number(id)} as={"programs/" + Number(id)} href={{ pathname: "programs/" + Number(id), query: queryData }}>
                           <div className="card-master">
                             <div
@@ -108,7 +108,7 @@ export default function Programs(prgrmsList) {
                             y
                           }
                           return (
-                            <div className="wrap" style={{ backgroundImage: `url(${data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image})` }}>
+                            <div className="wrap" key={y} style={{ backgroundImage: `url(${data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image})` }}>
                               <Link key={Number(x)} as={"programs/" + Number(x)} href={{ pathname: "programs/" + Number(x), query: queryData }}>
                                 <div className="card-master">
                                   <div className="img-wrapper"><img src={data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image} /></div>
@@ -143,7 +143,7 @@ export default function Programs(prgrmsList) {
                       y
                     }
                     return (
-                      <div className="wrap" style={{ backgroundImage: `url(${data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image})` }}>
+                      <div className="wrap" key={y} style={{ backgroundImage: `url(${data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image})` }}>
                         <Link key={Number(x)} as={"programs/" + Number(x)} href={{ pathname: "programs/" + Number(x), query: queryData }}>
                           <div className="card-master">
                             <div className="img-wrapper"><img src={data[Number(x)].image == undefined ? '/noimage.png' : data[Number(x)].image} /></div>

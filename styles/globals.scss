@@ -916,6 +916,7 @@ div.react-tabs {
       &[aria-selected="true"] {
         background: rgb(255 255 255 / 85%);
         filter: drop-shadow(0 0 8px rgb(0 0 0 / 10%));
+        transform: translateZ(0); //なんかiosだとバグるのでgpu描画
       }
       &:focus {
         outline: inherit;
