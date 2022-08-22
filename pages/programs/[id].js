@@ -69,6 +69,9 @@ export default function Program() {
               <p className='shortDesc'>{program.shortDesc}</p>
               <p className='longDesc'>{program.longDesc}</p>
             </div>
+            <div className='infos'>
+              <img src={"/maps/" + program.ID + ".png"} />
+            </div>
           </div>
         </div>
 

@@ -23,7 +23,7 @@ body {
   }
   &::after {
     bottom: 0;
-    background-color: var(--color-10);
+    background-color: var(--color-E);
   }
 }
 i {
@@ -36,16 +36,16 @@ a {
 //defaults and variables
 * {
   box-sizing: border-box;
-  --color-10: #590d22;
+  --color-10: #104e5d;
   --color-9: #800f2f;
   --color-8: #a4133c;
-  --color-7: #c9184a;
+  --color-7: #ff9f1c;
   --color-6: #ff4d6d;
   --color-5: #ff758f;
   --color-4: #ff8fa3;
   --color-3: #ffb3c1;
   --color-2: #ffccd5;
-  --color-1: #fff0f3;
+  --color-1: #edede9;
   --color-1b: #edede9;
   --color-1c: #d6ccc2;
   --color-1d: #f5ebe0;
@@ -58,11 +58,14 @@ a {
   --color-B: #B0C4B1;
   --color-A: #4A5759;
    */
-    --color-E: #e29578;
-    --color-D: #ffddd2;
-    --color-C: #edf6f9;
-    --color-B: #83c5be;
-    --color-A: #006b77;
+  --color-H: #ffa767;
+  --color-G: #0797b2;
+  --color-F: #e26b3a;
+  --color-E: #ff9f1c;
+  --color-D: #ffc069;
+  --color-C: #ffffff;
+  --color-B: #cbf4f0;
+  --color-A: #2fc6b7;
 
   --color-fav: #c9184a;
   /* --color-10: #073B4C;
@@ -322,6 +325,7 @@ div.header {
         width: 100%;
         max-width: 480px;
         aspect-ratio: 1/1;
+        object-fit: cover;
       }
     }
     > div {
@@ -347,7 +351,7 @@ div.header {
           font-weight: 700;
           font-family: "Jost";
           font-size: 12px;
-          background: var(--color-10);
+          background: var(--color-F);
           color: white;
         }
         i.genre {
@@ -361,17 +365,19 @@ div.header {
           width: 30px;
           height: 30px;
           position: absolute;
+          --width: 4px;
+          --color: var(--color-G);
         }
         &::before {
-          border-left: solid 2px var(--color-7);
-          border-top: solid 2px var(--color-7);
+          border-left: solid var(--width) var(--color);
+          border-top: solid var(--width) var(--color);
           top: 0;
           left: 0;
         }
 
         &::after {
-          border-right: solid 2px var(--color-7);
-          border-bottom: solid 2px var(--color-7);
+          border-right: solid var(--width) var(--color);
+          border-bottom: solid var(--width) var(--color);
           bottom: 0;
           right: 0;
         }
@@ -403,9 +409,9 @@ div.header {
         padding: 32px 12px;
         min-width: 120px;
         max-width: 100%;
-        color: var(--color-10);
+        color: white;
         font-size: 16px;
-        background: var(--color-1);
+        background: var(--color-H);
         box-sizing: border-box;
         border-radius: 16px;
         &::before {
@@ -457,7 +463,7 @@ div.header {
     align-items: center;
     z-index: 90;
     span {
-      --line-color: var(--color-10);
+      --line-color: black;
       display: block;
       height: 2px;
       width: 20px;
@@ -546,7 +552,7 @@ div.header {
   z-index: 80;
   background-size: calc(200% + 64px);
   background-position-x: left;
-  background-image: linear-gradient(to right, var(--color-7) calc(50% + 72px), var(--color-1) calc(50% + 72px));
+  background-image: linear-gradient(to right, var(--color-B) calc(50% + 72px), var(--color-C) calc(50% + 72px));
   /* background:no-repeat center/100% url('/nagamine-shi.png') , no-repeat left/calc(200% + 64px) linear-gradient(to right, var(--color-7) calc(50% + 72px), var(--color-1) calc(50% + 72px)); */
   left: 100%;
   transition: all 0.5s;
@@ -554,25 +560,25 @@ div.header {
   > div {
     padding: 100px 16px 0 64px;
     ul.links {
-      padding: 8px 32px 8px 0;
+      padding: 8px 0 8px 32px;
       li {
-        border-bottom: solid 1px var(--color-8);
         list-style: none;
         a {
           display: block;
           width: 100%;
           font-size: 1em;
           box-sizing: border-box;
-          color: var(--color-10);
+          color: black;
           text-decoration: none;
-          padding: 8px 15px 8px 0;
+          padding: 8px 32px 8px 0;
           position: relative;
+          text-align: end;
           &::before {
             content: "";
             width: 7px;
             height: 7px;
-            border-top: solid 2px var(--color-10);
-            border-right: solid 2px var(--color-10);
+            border-top: solid 2px black;
+            border-right: solid 2px black;
             transform: rotate(45deg);
             position: absolute;
             right: 11px;
@@ -592,7 +598,7 @@ div.header {
         flex: 1;
         li {
           list-style: none;
-          color: var(--color-10);
+          color: black;
           text-align: end;
           span.material-symbols-outlined {
             font-size: 1em;
@@ -644,10 +650,10 @@ footer {
   }
   > div:nth-of-type(1) {
     @media screen and (max-width: 479px) {
-      background: linear-gradient(to bottom, var(--color-1) 216px, var(--color-2) 216px);
+      background: linear-gradient(to bottom, var(--color-B) 216px, var(--color-C) 216px);
     }
     @media screen and (min-width: 480px) {
-      background: linear-gradient(to bottom, var(--color-1) 64px, var(--color-2) 64px);
+      background: linear-gradient(to bottom, var(--color-B) 64px, var(--color-C) 64px);
     }
     padding: 72px 12px 12px;
     > main {
@@ -691,18 +697,18 @@ footer {
     }
   }
   > div:nth-of-type(2) {
-    background: var(--color-3);
+    background: var(--color-D);
     padding: 0 12px;
     > main > i {
       display: block;
       text-align: end;
       padding: 24px 0;
-      color: var(--color-9);
+      color: black;
       font-size: 0.8em;
     }
   }
   > div:nth-of-type(3) {
-    background: var(--color-10);
+    background: var(--color-E);
     padding: 0 12px;
     > main > i {
       display: block;
@@ -1212,20 +1218,19 @@ body[data-current-url="/programs/"] #__next > main {
   background-color: rgb(246 246 246);
 }
 
-
-.filters{
+.filters {
   text-align: end;
-  .material-symbols-outlined{
+  .material-symbols-outlined {
     transform: translateY(8px);
   }
-select{
-  border: none;
-  border-bottom: solid 2px black;
-  border-radius: 0;
-  background: transparent;
-  color: black;
-  font-size: 1rem;
-  margin:  8px;
-  padding: 6px;
-}
+  select {
+    border: none;
+    border-bottom: solid 2px black;
+    border-radius: 0;
+    background: transparent;
+    color: black;
+    font-size: 1rem;
+    margin: 8px;
+    padding: 6px;
+  }
 }
