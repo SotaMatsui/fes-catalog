@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build && next export",
     "deploy": "yarn build && firebase use fes-catalog && firebase deploy --only hosting",
-    "publish": "yarn build && firebase use stable-fes-catalog && firebase deploy --only hosting",
+    "deploy-public": "yarn build && firebase use stable-fes-catalog && firebase deploy --only hosting",
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine"

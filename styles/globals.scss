@@ -51,6 +51,19 @@ a {
   --color-1d: #f5ebe0;
   --color-1e: #e3d5ca;
   --color-1f: #d5bdaf;
+  /* 
+  --color-E: #EDAFB8;
+  --color-D: #F7E1D7;
+  --color-C: #DEDBD2;
+  --color-B: #B0C4B1;
+  --color-A: #4A5759;
+   */
+    --color-E: #e29578;
+    --color-D: #ffddd2;
+    --color-C: #edf6f9;
+    --color-B: #83c5be;
+    --color-A: #006b77;
+
   --color-fav: #c9184a;
   /* --color-10: #073B4C;
   --color-9: #118AB2;
@@ -65,7 +78,8 @@ a {
   --gap-default: 20px;
 }
 .centered {
-  max-width: 1600px;
+  width: 100%;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }

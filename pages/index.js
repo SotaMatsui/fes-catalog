@@ -2,7 +2,7 @@ import Layout from "../components/layout";
 import Countdown from "react-countdown";
 
 export default function Home() {
-  var countdownDate = new Date("2022/09/09 9:00:00+0900");
+  var countdownDate = new Date("2022/09/10 12:00:00+0900");
   return (
     <>
       <section id="mobile">
@@ -20,7 +20,7 @@ export default function Home() {
             <div className="scrolldown4"><span>next</span></div>
           </div>
           <div className="countdown-towards-1stday" >
-            <p>生徒公開日まで</p>
+            <p>一般公開日まで</p>
             <Countdown date={countdownDate} />
           </div>
         </div>

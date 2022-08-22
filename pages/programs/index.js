@@ -24,6 +24,15 @@ export default function Programs(prgrmsList) {
     }
   }, [])
 
+  const checkIfImageExists = (url) => {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = url;
+        img.onload = () => resolve(url);
+        img.onerror = () => reject(url);
+    });
+};
+
   if (success == false || success == undefined) {
     return <div>読み込み中...</div>
 
