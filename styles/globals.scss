@@ -1168,19 +1168,26 @@ section#bigger {
     grid-area: posb;
     text-align: center;
     display: flex;
-    align-content: center;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    > span {
-      transform: translateY(64px);
-    }
-    > p {
-      writing-mode: horizontal-tb;
-      white-space: nowrap;
-      transform: rotate(90deg) translateX(64px);
-      margin-bottom: 64px;
+    > section {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      transform: rotate(270deg) translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      -webkit-font-smoothing: antialiased;
+      > span {
+        white-space: nowrap;
+        height: fit-content;
+      }
+      > p {
+        writing-mode: horizontal-tb;
+        height: fit-content;
+        white-space: nowrap;
+      }
     }
   }
   .infos-wrap {
@@ -1233,4 +1240,8 @@ body[data-current-url="/programs/"] #__next > main {
     margin: 8px;
     padding: 6px;
   }
+}
+
+.countdown-day {
+  font-size: 0.4em;
 }

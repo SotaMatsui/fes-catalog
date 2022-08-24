@@ -1,8 +1,15 @@
 import Layout from "../components/layout";
-import Countdown from "react-countdown";
+import Countdown, { zeroPad } from 'react-countdown';
 
 export default function Home() {
   var countdownDate = new Date("2022/09/10 12:00:00+0900");
+  const renderer = ({ days, hours, minutes, seconds }) => {
+    if (days == 0) {
+      return <span>{zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}</span>;
+    } else {
+      return <span>{zeroPad(days)}<i className="countdown-day">日  </i>{zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}</span>;
+    }
+  };
   return (
     <>
       <section id="mobile">
@@ -21,7 +28,7 @@ export default function Home() {
           </div>
           <div className="countdown-towards-1stday" >
             <p>一般公開日まで</p>
-            <Countdown date={countdownDate} />
+            <Countdown date={countdownDate} renderer={renderer} />
           </div>
         </div>
         <div className="infos-wrap">
@@ -83,8 +90,10 @@ export default function Home() {
           </div>
         </div>
         <div className="countdown-towards-1stday" >
-          <p>生徒公開日まで</p>
-          <Countdown date={countdownDate} />
+          <section>
+            <p>生徒公開日まで</p>
+            <Countdown date={countdownDate} renderer={renderer} />
+          </section>
         </div>
         <div className="infos-wrap">
           <div className="theme-summary" >
@@ -122,7 +131,7 @@ export default function Home() {
                 </div>
               </section>
             </section>
-          </div>
+          </div>{/* 
           <div className="catalog-introduction" >
             <div className="header">
               <h3>企画を楽しもう</h3>
@@ -130,7 +139,7 @@ export default function Home() {
             <p>
               2022年度本所高校文化祭のテーマは「虹（にじ）」です。<br />ともに定められたサブテーマ「彩れ、青春の一ページ」にも基づいて、生徒一人ひとりの色が織りなす個性豊かな展示をお楽しみください。
             </p>
-          </div>
+          </div> */}
         </div>
       </section>
     </>
