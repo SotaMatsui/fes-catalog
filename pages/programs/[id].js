@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import getData from '../../functions/getData';
 import ProgramLayout from '../../components/layout-program';
 import { useEffect, useState } from 'react';
-
+import fetch from 'node-fetch'
 
 export default function Program() {
   const router = useRouter();
@@ -47,25 +47,25 @@ export default function Program() {
                   data-is-fav={favs.indexOf(Number(program.ID)) != -1 ? 'true' : 'false'}
                   onClick={() => setFavorite(Number(program.ID))}>favorite</span>
               </i>
-              <hr/>
+              <hr />
               {timing[program.ID] != undefined ?
-                timing[program.ID].time != "TBC"?
-                Object.keys(timing[program.ID].time).map((x, y) => {
-                return (
-                  <section key={y} className="timings">
-                    <h4>{x}</h4>
-                    <ul>
-                      {timing[program.ID].time[x].map((a, b) => {
-                        return <li key={b}>{a.start}~{a.end}</li>
-                      })}
-                    </ul>
-                  </section>
-                )
-                })
-                  :<p>開催時刻は未定です</p>
+                timing[program.ID].time != "TBC" ?
+                  Object.keys(timing[program.ID].time).map((x, y) => {
+                    return (
+                      <section key={y} className="timings">
+                        <h4>{x}</h4>
+                        <ul>
+                          {timing[program.ID].time[x].map((a, b) => {
+                            return <li key={b}>{a.start}~{a.end}</li>
+                          })}
+                        </ul>
+                      </section>
+                    )
+                  })
+                  : <p>開催時刻は未定です</p>
                 :
-              <p>時間指定はありません</p>  
-            }
+                <p>時間指定はありません</p>
+              }
               <p className='shortDesc'>{program.shortDesc}</p>
               <p className='longDesc'>{program.longDesc}</p>
             </div>
@@ -83,4 +83,16 @@ export default function Program() {
 
 Program.getLayout = function getLayout(page) {
   return <ProgramLayout>{page}</ProgramLayout>
+}
+
+export async function getStaticPaths() {
+  const res = await fetch('https://fesbrochuredata.web.app/fes22.data.json')
+  const repos = await res.json()
+  const ids = Object.keys(repos.main)
+  const paths = ids.map((id) => { return ({ params: { id: id } }) })
+  return { paths, fallback: false }
+}
+export async function getStaticProps({ params }) {
+  const id = params.id
+  return { props: { id } }
 }
