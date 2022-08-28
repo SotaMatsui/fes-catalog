@@ -49,10 +49,10 @@ export default function Program() {
               </i>
               <hr/>
               {timing[program.ID] != undefined ?
-                timing[program.ID] == "TBC"?
+                timing[program.ID].time != "TBC"?
                 Object.keys(timing[program.ID].time).map((x, y) => {
                 return (
-                  <section key={y}>
+                  <section key={y} className="timings">
                     <h4>{x}</h4>
                     <ul>
                       {timing[program.ID].time[x].map((a, b) => {
