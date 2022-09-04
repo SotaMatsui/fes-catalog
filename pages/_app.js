@@ -23,9 +23,9 @@ function MyApp({ Component, pageProps }) {
       <meta property="og:description" content="彩れ、青春の一ページ。 - 2022年度本所高校文化祭デジタルパンフレット" />
       <meta property="og:site_name" content="本所祭22" />
       <meta property="og:image" content="https://honjo.one/ogp.png" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=090421" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=090421" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=090421" />
       <link rel="manifest" href="/site.webmanifest" />
     </Head>
     <Component {...pageProps} />
