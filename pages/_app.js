@@ -2,6 +2,7 @@ import '../styles/globals.scss'
 import Head from "next/head";
 import { useEffect } from 'react';
 import { useRouter } from "next/router";
+import { AnimatePresence } from 'framer-motion'
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
@@ -28,7 +29,9 @@ function MyApp({ Component, pageProps }) {
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=090421" />
       <link rel="manifest" href="/site.webmanifest" />
     </Head>
-    <Component {...pageProps} />
+    <AnimatePresence>
+      <Component key={router.asPath} {...pageProps} />
+    </AnimatePresence>
   </>
   );
 }

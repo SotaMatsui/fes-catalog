@@ -35,7 +35,7 @@ export default function Header() {
                 <Link href='/greeting/'>ごあいさつ</Link>
               </li>
               <li onClick={closeMenu}>
-                <Link href='/programs/'>開催プログラム一覧</Link>
+                <Link as='/programs/' href={{ pathname: '/programs/', query:{"fromNav": "true"}}} >開催プログラム一覧</Link>
               </li>
               <li onClick={closeMenu}>
                 <Link href='/notes/'>おねがい</Link>

@@ -1246,8 +1246,56 @@ body[data-current-url="/programs/"] #__next > main {
   font-size: 0.4em;
 }
 
-.timings{
-  h4{
+.timings {
+  h4 {
     margin: 0;
   }
+}
+
+//load anims
+#curtain {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  animation-duration: 680ms;
+  background: white;
+  align-items: center;
+  justify-content: center;
+
+  > div {
+  }
+}
+
+.item {
+  width: 56%;
+  overflow: visible;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+#svg_logo {
+  stroke: #000;
+  stroke-width: 1px;
+  fill: transparent;
+}
+#curtain {
+  animation: dash_animation 2s ease-in both;
+}
+@keyframes dash_animation {
+  0% {
+    stroke-dashoffset: 1237px;
+    stroke-dasharray: 1237px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.load-logo {
+  width: 50%;
 }
